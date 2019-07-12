@@ -1,0 +1,36 @@
+//https://www.luogu.org/problemnew/show/P1055
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+        String s = input.nextLine();
+        int sum =0;
+        int j = 1;
+        for(int i =0;i<13;i++){
+            if(s.charAt(i)=='-')continue;
+            else {
+                if(j==10)break;
+                sum+=(s.charAt(i)-'0')*(j++);
+            }
+        }
+        int value = sum %11;
+
+        if(value==10){
+            if(s.charAt(12)=='X'){
+                System.out.println("Right");
+            }else {
+                System.out.print(s.substring(0,12));
+                System.out.print('X');
+            }
+        }else {
+            if(value==s.charAt(12)-'0') {
+                System.out.println("Right");
+            }
+            else {
+                System.out.print(s.substring(0, 12));
+                System.out.print(value);
+            }
+        }
+    }
+}
